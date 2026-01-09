@@ -184,6 +184,8 @@ The frontend will run on `http://localhost:3000`
 
 - MongoDB connection is required for the system to work
 - Socket.io connection is required for real-time features
-- Student IDs are stored in localStorage (unique per tab)
+- Student IDs and names are stored in localStorage with a unique tab identifier (ensures each browser tab has independent student identity)
 - Polls are automatically ended when timer expires
 - Only one active poll at a time
+- Chat functionality available for both teachers and students
+- Teachers can kick out students during active polls
