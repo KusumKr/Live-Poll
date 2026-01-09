@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 import { useSocket } from '../../hooks/useSocket';
 import { useNavigate } from 'react-router-dom';
-import { usePollTimer } from '../../hooks/usePollTimer';
 import { ChatModal } from '../../components/ChatModal';
 import './Teacher.css';
 
