@@ -31,7 +31,7 @@ export function ChatModal() {
     if (!socket) return;
 
     // Store current user ID
-    setCurrentUserId(socket.id);
+    setCurrentUserId(socket.id || null);
 
     // Listen for chat messages
     socket.on('chatMessage', (data: ChatMessage) => {

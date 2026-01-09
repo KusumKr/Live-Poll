@@ -73,7 +73,7 @@ export function TeacherHistory() {
               const resultsMap = new Map(item.results.map(r => [r.option, r.percentage]));
               
               // Show all poll options, even if they have 0% votes
-              const displayResults = item.poll.options.map((option, index) => ({
+              const displayResults = item.poll.options.map((option) => ({
                 option,
                 percentage: resultsMap.get(option) || 0
               }));

@@ -6,7 +6,7 @@ import { ChatModal } from '../../components/ChatModal';
 import './Teacher.css';
 
 export function TeacherResults() {
-  const { currentState, endPoll, socket } = useSocket();
+  const { currentState, socket } = useSocket();
 
   useEffect(() => {
     if (socket) {
@@ -19,12 +19,6 @@ export function TeacherResults() {
   const remainingTime = currentState?.remainingTime || 0;
   const results = currentState?.results || [];
   const isActive = poll?.isActive && remainingTime > 0;
-
-  const { minutes, seconds } = usePollTimer(remainingTime, isActive || false);
-
-  const handleEndPoll = () => {
-    endPoll();
-  };
 
   const handleCreateNew = () => {
     navigate('/teacher/create');

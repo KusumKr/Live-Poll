@@ -2,7 +2,7 @@ import { useEffect, useState, useRef } from 'react';
 
 export function usePollTimer(remainingTime: number | null, isActive: boolean) {
   const [timeLeft, setTimeLeft] = useState<number>(remainingTime || 0);
-  const intervalRef = useRef<NodeJS.Timeout | null>(null);
+  const intervalRef = useRef<number | null>(null);
 
   useEffect(() => {
     if (remainingTime !== null) {
@@ -12,11 +12,11 @@ export function usePollTimer(remainingTime: number | null, isActive: boolean) {
 
   useEffect(() => {
     if (isActive && timeLeft > 0) {
-      intervalRef.current = setInterval(() => {
+      intervalRef.current = window.setInterval(() => {
         setTimeLeft((prev) => {
           if (prev <= 1) {
             if (intervalRef.current) {
-              clearInterval(intervalRef.current);
+              window.clearInterval(intervalRef.current);
             }
             return 0;
           }
@@ -25,14 +25,14 @@ export function usePollTimer(remainingTime: number | null, isActive: boolean) {
       }, 1000);
     } else {
       if (intervalRef.current) {
-        clearInterval(intervalRef.current);
+        window.clearInterval(intervalRef.current);
         intervalRef.current = null;
       }
     }
 
     return () => {
       if (intervalRef.current) {
-        clearInterval(intervalRef.current);
+        window.clearInterval(intervalRef.current);
       }
     };
   }, [isActive, timeLeft]);

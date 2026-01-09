@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { io, Socket } from 'socket.io-client';
-import { CurrentState, Poll, PollResult, PollResultsResponse } from '../types';
+import { CurrentState, Poll, PollResultsResponse } from '../types';
 
 const SOCKET_URL = import.meta.env.VITE_SOCKET_URL || 'http://localhost:5000';
 
