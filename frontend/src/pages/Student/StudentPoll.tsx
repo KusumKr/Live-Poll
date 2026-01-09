@@ -10,7 +10,7 @@ import { BrandBadge } from '../../components/BrandBadge';
 import './Student.css';
 
 export function StudentPoll() {
-  const { currentState, submitVote, error, clearError, wasKickedOut } = useSocket();
+  const { currentState, submitVote, error, clearError, wasKickedOut, socket } = useSocket();
   const [selectedOption, setSelectedOption] = useState<number | null>(null);
   const [hasVoted, setHasVoted] = useState(false);
   const navigate = useNavigate();
