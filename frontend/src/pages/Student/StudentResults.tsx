@@ -5,7 +5,7 @@ import { ChatModal } from '../../components/ChatModal';
 import './Student.css';
 
 export function StudentResults() {
-  const { currentState, wasKickedOut } = useSocket();
+  const { currentState, wasKickedOut, socket } = useSocket();
   const navigate = useNavigate();
 
   // Navigate to kicked out page if student was kicked out
@@ -14,6 +14,16 @@ export function StudentResults() {
       navigate('/student/kicked-out');
     }
   }, [wasKickedOut, navigate]);
+
+  // Register as participant when on results page
+  useEffect(() => {
+    if (socket) {
+      const studentName = storage.getStudentName();
+      if (studentName) {
+        socket.emit('registerParticipant', { name: studentName });
+      }
+    }
+  }, [socket]);
 
   useEffect(() => {
     // If a new poll becomes active and student hasn't voted yet, navigate to poll screen

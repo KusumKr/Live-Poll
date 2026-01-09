@@ -35,6 +35,13 @@ export function StudentPoll() {
     }
   }, [studentName, navigate]);
 
+  // Register as participant when on poll page
+  useEffect(() => {
+    if (socket && studentName) {
+      socket.emit('registerParticipant', { name: studentName });
+    }
+  }, [socket, studentName]);
+
   const { minutes, seconds } = usePollTimer(remainingTime, isActive || false);
 
   useEffect(() => {

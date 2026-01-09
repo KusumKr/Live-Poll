@@ -39,10 +39,18 @@ export function ChatModal() {
     });
 
     // Listen for participants list
-    socket.on('participantsList', (data: Participant[]) => {
-      console.log('Received participants list:', data);
-      setParticipants(data);
-    });
+    const handleParticipantsList = (data: Participant[]) => {
+      console.log('Received participants list event:', data);
+      console.log('Participants data type:', typeof data, 'Is array:', Array.isArray(data));
+      if (Array.isArray(data)) {
+        setParticipants(data);
+      } else {
+        console.error('Participants data is not an array:', data);
+        setParticipants([]);
+      }
+    };
+    
+    socket.on('participantsList', handleParticipantsList);
 
     // Request participants list on initial connection
     socket.emit('getParticipants');
@@ -61,16 +69,19 @@ export function ChatModal() {
 
   // Request participants list when modal opens or when switching to participants tab
   useEffect(() => {
-    if (isOpen && activeTab === 'participants' && socket) {
-      console.log('Requesting participants list...');
-      socket.emit('getParticipants');
-      // Also request again after a short delay to ensure we get the latest list
-      const timeout = setTimeout(() => {
+    if (isOpen && socket) {
+      if (activeTab === 'participants') {
+        console.log('Requesting participants list...');
         socket.emit('getParticipants');
-      }, 100);
-      return () => clearTimeout(timeout);
+        // Also request again after a short delay to ensure we get the latest list
+        const timeout = setTimeout(() => {
+          socket.emit('getParticipants');
+        }, 200);
+        return () => clearTimeout(timeout);
+      }
     }
   }, [isOpen, activeTab, socket]);
+
 
   const handleSendMessage = (e: React.FormEvent) => {
     e.preventDefault();
@@ -163,11 +174,20 @@ export function ChatModal() {
                     <div className="participant-col-header">Action</div>
                   </div>
                   {(() => {
-                    console.log('All participants:', participants);
-                    const studentsOnly = participants.filter(p => p.name !== 'Teacher');
-                    console.log('Students only:', studentsOnly);
+                    console.log('All participants received:', participants);
+                    console.log('Participants array length:', participants.length);
+                    const studentsOnly = participants.filter(p => p && p.name && p.name !== 'Teacher');
+                    console.log('Filtered students:', studentsOnly);
+                    console.log('Students count:', studentsOnly.length);
+                    
                     if (studentsOnly.length === 0) {
-                      return <div className="participants-empty">No participants yet</div>;
+                      return (
+                        <div className="participants-empty">
+                          {participants.length === 0 
+                            ? 'No participants yet. Make sure students have entered their names and are connected.' 
+                            : `No students found. (${participants.length} total participant(s))`}
+                        </div>
+                      );
                     }
                     return studentsOnly.map((participant) => (
                       <div key={participant.id} className="participant-item">
