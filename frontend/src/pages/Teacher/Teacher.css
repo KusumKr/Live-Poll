@@ -1297,27 +1297,57 @@
   }
 
   .results-container-teacher {
-    width: 100%;
+    width: 100% !important;
+    max-width: 100% !important;
     height: auto;
     min-height: 300px;
+    margin-bottom: 20px;
+  }
+
+  .poll-question-box-teacher {
+    padding: 12px 16px;
+    min-height: 44px;
   }
 
   .poll-question-text-teacher {
     font-size: 15px;
+    line-height: 20px;
+  }
+
+  .results-wrapper-teacher {
+    padding: 16px 12px;
   }
 
   .result-item-teacher {
-    padding: 20px 16px;
+    padding: 16px 12px;
     min-height: 50px;
+    gap: 8px;
+  }
+
+  .result-item-teacher:first-child {
+    padding: 16px 12px;
+  }
+
+  .result-number {
+    width: 20px;
+    height: 20px;
+    font-size: 10px;
+    padding: 6px 8px 7px;
   }
 
   .result-option-teacher {
-    font-size: 15px;
+    font-size: 14px;
+    line-height: 18px;
   }
 
   .result-percentage-teacher {
-    font-size: 15px;
-    right: 16px;
+    font-size: 14px;
+    right: 12px;
+    font-weight: 600;
+  }
+
+  .result-content {
+    gap: 8px;
   }
 
   .ask-new-question-wrapper {
@@ -1437,6 +1467,48 @@
   }
 
   .result-percentage-teacher {
+    font-size: 13px;
+    right: 10px;
+  }
+
+  .results-container-teacher {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-bottom: 16px;
+  }
+
+  .poll-question-box-teacher {
+    padding: 10px 14px;
+    min-height: 40px;
+  }
+
+  .poll-question-text-teacher {
     font-size: 14px;
+    line-height: 18px;
+  }
+
+  .results-wrapper-teacher {
+    padding: 12px 10px;
+  }
+
+  .result-item-teacher {
+    padding: 14px 10px;
+    min-height: 48px;
+  }
+
+  .result-item-teacher:first-child {
+    padding: 14px 10px;
+  }
+
+  .result-number {
+    width: 18px;
+    height: 18px;
+    font-size: 9px;
+    padding: 5px 7px 6px;
+  }
+
+  .result-option-teacher {
+    font-size: 13px;
+    line-height: 17px;
   }
 }
