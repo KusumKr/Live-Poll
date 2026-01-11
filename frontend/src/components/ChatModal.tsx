@@ -57,7 +57,7 @@ export function ChatModal() {
 
     return () => {
       socket.off('chatMessage');
-      socket.off('participantsList');
+      socket.off('participantsList', handleParticipantsList);
     };
   }, [socket]);
 
@@ -70,14 +70,26 @@ export function ChatModal() {
   // Request participants list when modal opens or when switching to participants tab
   useEffect(() => {
     if (isOpen && socket) {
+      console.log('Modal is open, requesting participants...');
+      socket.emit('getParticipants');
+      
       if (activeTab === 'participants') {
-        console.log('Requesting participants list...');
-        socket.emit('getParticipants');
-        // Also request again after a short delay to ensure we get the latest list
-        const timeout = setTimeout(() => {
-          socket.emit('getParticipants');
-        }, 200);
-        return () => clearTimeout(timeout);
+        // Request again when switching to participants tab with multiple attempts
+        const timeouts = [
+          setTimeout(() => {
+            console.log('Requesting participants list (attempt 1)...');
+            socket.emit('getParticipants');
+          }, 200),
+          setTimeout(() => {
+            console.log('Requesting participants list (attempt 2)...');
+            socket.emit('getParticipants');
+          }, 500),
+          setTimeout(() => {
+            console.log('Requesting participants list (attempt 3)...');
+            socket.emit('getParticipants');
+          }, 1000)
+        ];
+        return () => timeouts.forEach(clearTimeout);
       }
     }
   }, [isOpen, activeTab, socket]);

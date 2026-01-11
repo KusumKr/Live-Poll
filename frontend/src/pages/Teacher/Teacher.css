@@ -1032,21 +1032,411 @@
   padding: 48px;
 }
 
-@media (max-width: 640px) {
+/* Tablet styles */
+@media (max-width: 1024px) {
+  .teacher-container {
+    padding: 80px 40px 40px;
+  }
+
   .teacher-content {
-    padding: 32px 24px;
+    max-width: 100%;
   }
-  
+
   .teacher-title {
-    font-size: 24px;
+    width: 100%;
+    font-size: 36px;
+    line-height: 45px;
+    height: auto;
   }
-  
+
+  .teacher-subtitle {
+    width: 100%;
+    font-size: 17px;
+    height: auto;
+  }
+
+  .teacher-header {
+    width: 100%;
+    margin-bottom: 50px;
+    height: auto;
+  }
+
+  .teacher-header-content {
+    width: 100%;
+    height: auto;
+  }
+
+  .form-textarea {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .options-header {
+    max-width: 100%;
+  }
+
+  .options-header label {
+    width: auto;
+    flex: 1;
+  }
+
+  .option-input-group-new {
+    width: 100%;
+    max-width: 507px;
+  }
+
+  .option-input-dark {
+    width: 507px;
+    max-width: 507px;
+  }
+
+  .view-history-button {
+    position: relative;
+    left: auto;
+    top: auto;
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 345px;
+    min-width: auto;
+    z-index: 1;
+  }
+
+  .teacher-results-content {
+    max-width: 100%;
+  }
+
+  .results-container-teacher {
+    width: 100%;
+    max-width: 727px;
+  }
+
+  .history-results-container {
+    width: 100%;
+    max-width: 727px;
+  }
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .teacher-container {
+    padding: 60px 20px 30px;
+  }
+
+  .teacher-content {
+    max-width: 100%;
+  }
+
+  .teacher-title {
+    width: 100%;
+    font-size: 28px;
+    line-height: 35px;
+    height: auto;
+  }
+
+  .teacher-subtitle {
+    width: 100%;
+    font-size: 16px;
+    line-height: 22px;
+    height: auto;
+  }
+
+  .teacher-header {
+    width: 100%;
+    margin-bottom: 40px;
+    gap: 24px;
+    height: auto;
+  }
+
+  .teacher-header-content {
+    width: 100%;
+    height: auto;
+    gap: 10px;
+  }
+
+  .question-group {
+    max-width: 100%;
+    height: auto;
+    gap: 16px;
+  }
+
+  .question-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    height: auto;
+    margin-bottom: 16px;
+  }
+
+  .question-header label {
+    width: 100%;
+    height: auto;
+    font-size: 18px;
+  }
+
+  .timer-dropdown {
+    width: 100%;
+    max-width: 170px;
+  }
+
+  .form-textarea {
+    width: 100%;
+    height: 140px;
+    padding: 16px;
+    font-size: 16px;
+  }
+
+  .character-counter {
+    bottom: 16px;
+    right: 50px;
+    font-size: 14px;
+  }
+
+  .options-group {
+    max-width: 100%;
+    gap: 10px;
+  }
+
+  .options-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    max-width: 100%;
+  }
+
+  .options-header label {
+    width: 100%;
+    height: auto;
+    font-size: 16px;
+  }
+
+  .correct-answer-label {
+    position: relative;
+    right: auto;
+    top: auto;
+    width: 100%;
+    height: auto;
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+
+  .option-row-wrapper {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    max-width: 100%;
+  }
+
+  .option-input-group-new {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    position: relative;
+  }
+
+  .option-input-dark {
+    position: relative;
+    left: 0;
+    top: 0;
+    width: calc(100% - 36px);
+    margin-left: 36px;
+    max-width: none;
+    height: 50px;
+    padding: 16px 20px;
+  }
+
+  .correct-answer-buttons {
+    margin-left: 0;
+    width: 100%;
+    height: auto;
+    justify-content: flex-start;
+  }
+
+  .add-option-button-new {
+    width: 100%;
+    text-align: left;
+  }
+
+  .form-submit-wrapper {
+    justify-content: center;
+    padding-top: 16px;
+  }
+
+  .teacher-button-ask {
+    width: 100%;
+    max-width: 233.93px;
+    padding: 15px 40px;
+    font-size: 16px;
+  }
+
+  .results-header-top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .teacher-title-results {
+    width: auto;
+    height: auto;
+  }
+
+  .view-history-button {
+    position: relative;
+    left: auto;
+    top: auto;
+    width: 100%;
+    max-width: 345px;
+    min-width: auto;
+    margin-bottom: 20px;
+    height: 50px;
+    font-size: 16px;
+    z-index: 1;
+  }
+
+  .teacher-results-content {
+    max-width: 100%;
+  }
+
+  .results-container-teacher {
+    width: 100%;
+    height: auto;
+    min-height: 300px;
+  }
+
+  .poll-question-text-teacher {
+    font-size: 15px;
+  }
+
+  .result-item-teacher {
+    padding: 20px 16px;
+    min-height: 50px;
+  }
+
+  .result-option-teacher {
+    font-size: 15px;
+  }
+
+  .result-percentage-teacher {
+    font-size: 15px;
+    right: 16px;
+  }
+
+  .ask-new-question-wrapper {
+    margin-top: 16px;
+  }
+
+  .teacher-button-ask-new {
+    width: 100%;
+    max-width: 300px;
+  }
+
   .history-header {
     flex-direction: column;
-    align-items: stretch;
+    align-items: flex-start;
+    gap: 16px;
   }
-  
+
+  .history-poll-section {
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+
+  .history-question-number {
+    font-size: 20px;
+    margin-bottom: 12px;
+  }
+
+  .history-results-container {
+    width: 100%;
+  }
+
+  .history-item {
+    padding: 20px 16px;
+  }
+
+  .history-question {
+    font-size: 18px;
+  }
+
   .history-actions {
     flex-direction: column;
+    width: 100%;
+  }
+
+  .history-actions .teacher-button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .teacher-container {
+    padding: 50px 16px 20px;
+  }
+
+  .teacher-title {
+    font-size: 24px;
+    line-height: 30px;
+  }
+
+  .teacher-subtitle {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .question-header label {
+    font-size: 16px;
+  }
+
+  .form-textarea {
+    height: 120px;
+    padding: 14px;
+    font-size: 15px;
+  }
+
+  .options-header label,
+  .correct-answer-label {
+    font-size: 15px;
+  }
+
+  .option-input-dark {
+    height: 48px;
+    padding: 16px 20px;
+    font-size: 16px;
+    width: calc(100% - 36px);
+    margin-left: 36px;
+  }
+
+  .teacher-button-ask {
+    padding: 14px 32px;
+    font-size: 15px;
+  }
+
+  .view-history-button {
+    height: 48px;
+    font-size: 15px;
+    width: 100%;
+    max-width: 100%;
+    min-width: auto;
+  }
+
+  .teacher-title-results,
+  .history-question-number {
+    font-size: 18px;
+  }
+
+  .poll-question-text-teacher {
+    font-size: 14px;
+    line-height: 18px;
+  }
+
+  .result-item-teacher {
+    padding: 16px 12px;
+  }
+
+  .result-option-teacher {
+    font-size: 14px;
+  }
+
+  .result-percentage-teacher {
+    font-size: 14px;
   }
 }
